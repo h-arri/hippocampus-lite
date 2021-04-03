@@ -7,7 +7,6 @@ import FilterBar from './FilterBar';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import {
   filterReminders,
-  getRemindersApi,
 } from '../store/actions/reminders';
 
 const DashboardLayout = styled(Layout)`
@@ -34,12 +33,10 @@ const DashboardHeader = styled(Layout.Header)`
 const Dashboard = () => {
   const dispatch = useDispatch();
   const reminders = useSelector((state) => state.reminders.filtered);
-  const loading = useSelector((state) => state.reminders.loading);
   const filter = useSelector((state) => state.filter);
 
   useEffect(() => {
     (async function fetchReminders() {
-      await dispatch(getRemindersApi());
       await dispatch(filterReminders(filter));
     })();
   }, []);
@@ -56,7 +53,7 @@ const Dashboard = () => {
       </DashboardHeader>
       <Divider />
       <DashboardLayout.Content>
-        <RemindersList reminders={reminders} loading={loading} />
+        <RemindersList reminders={reminders} />
       </DashboardLayout.Content>
     </DashboardLayout>
   );

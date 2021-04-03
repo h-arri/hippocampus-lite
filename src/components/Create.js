@@ -1,6 +1,6 @@
 import {
+  createReminder,
   filterReminders,
-  getRemindersApi,
 } from '../store/actions/reminders';
 import { Form, message } from 'antd';
 import styled from 'styled-components';
@@ -16,10 +16,6 @@ import {
   StyledInput,
   StyledModal,
 } from './StyledAntComponents';
-import {
-  createReminder,
-  createReminderSuccess,
-} from '../store/actions/reminder';
 
 const CreateButton = styled(StyledButton)`
   width: 10vw;
@@ -99,7 +95,6 @@ const Create = () => {
       reminders.find((r) => r.id === reminder.id) === undefined
     ) {
       message.success('Reminder created successfully!');
-      //dispatch(getRemindersApi());
       dispatch(filterReminders(filter));
     }
   }, [creating]);
@@ -126,9 +121,6 @@ const Create = () => {
           createdAt: moment().format('YYYY-MM-DD hh:mm:ss'),
         })
       );
-      setTimeout(() => {
-        dispatch(createReminderSuccess());
-      }, 5000);
       setOpen(false);
     });
   };

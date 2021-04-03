@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import {
-  deleteReminderApi,
-  updateReminderApi,
-} from '../store/actions/reminder';
 import moment from 'moment';
 import {
   StyledButton,
   StyledCard,
   StyledPopconfirm,
 } from './StyledAntComponents';
+import {
+  deleteReminder,
+  updateReminder,
+} from '../store/actions/reminders';
 
 const DeleteButton = styled(StyledButton)`
   background-color: ${(props) => props.theme.gainsboro};
@@ -71,19 +71,11 @@ const Reminder = (props) => {
   const dispatch = useDispatch();
 
   const handleDone = () => {
-    dispatch(
-      updateReminderApi({
-        ...reminder,
-        isDone: true,
-        remindAt: moment(reminder.remindAt).format(
-          'YYYY-MM-DD hh:mm:ss'
-        ),
-      })
-    );
+    dispatch(updateReminder(reminder.id));
   };
 
   const handleDelete = () => {
-    dispatch(deleteReminderApi(reminder.id));
+    dispatch(deleteReminder(reminder.id));
   };
 
   return (
