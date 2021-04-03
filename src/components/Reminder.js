@@ -11,7 +11,6 @@ import {
   StyledCard,
   StyledPopconfirm,
 } from './StyledAntComponents';
-import reminder from '../store/reducers/reminder';
 
 const DeleteButton = styled(StyledButton)`
   background-color: ${(props) => props.theme.gainsboro};

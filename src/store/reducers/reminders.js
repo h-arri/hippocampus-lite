@@ -1,5 +1,6 @@
 import {
   CREATE_REMINDER,
+  DELETE_REMINDER,
   FILTER_REMINDERS,
   GET_REMINDERS,
   GET_REMINDERS_FAILURE,
@@ -29,8 +30,6 @@ const initialState = {
     //   isDone: false,
     // },
   ],
-  loading: false,
-  error: null,
 };
 
 export default (state = initialState, action) => {
@@ -39,6 +38,15 @@ export default (state = initialState, action) => {
       return {
         ...state,
         reminders: [...state.reminders, action.reminder],
+      };
+    case DELETE_REMINDER:
+      return {
+        ...state,
+        reminders: [
+          ...state.reminders.filter(
+            (reminder) => reminder.id !== action.id
+          ),
+        ],
       };
     case FILTER_REMINDERS:
       return {
