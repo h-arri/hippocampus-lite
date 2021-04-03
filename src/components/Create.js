@@ -16,6 +16,7 @@ import {
   StyledInput,
   StyledModal,
 } from './StyledAntComponents';
+import { updateFilter } from '../store/actions/filter';
 
 const CreateButton = styled(StyledButton)`
   width: 10vw;
@@ -83,8 +84,7 @@ const Create = () => {
   const [open, setOpen] = useState(false);
 
   const reminders = useSelector((state) => state.reminders.reminders);
-  const reminder = useSelector((state) => state.reminder.reminder);
-  const creating = useSelector((state) => state.reminder.loading);
+  const reminder = useSelector((state) => state.reminders.reminder);
   const filter = useSelector((state) => state.filter);
 
   useEffect(() => {
@@ -97,7 +97,7 @@ const Create = () => {
       message.success('Reminder created successfully!');
       dispatch(filterReminders(filter));
     }
-  }, [creating]);
+  }, [reminder]);
 
   const handleOpen = () => {
     setOpen(true);
@@ -119,8 +119,10 @@ const Create = () => {
             'YYYY-MM-DD hh:mm:ss'
           ),
           createdAt: moment().format('YYYY-MM-DD hh:mm:ss'),
+          isDone: false,
         })
       );
+      dispatch(filterReminders(filter));
       setOpen(false);
     });
   };
@@ -138,7 +140,6 @@ const Create = () => {
         onOk={handleCreate}
         onCancel={handleClose}
         cancelButtonProps={{ danger: true }}
-        confirmLoading={creating}
       >
         <Form
           form={form}

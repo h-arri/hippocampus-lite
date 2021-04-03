@@ -37,9 +37,6 @@ const DoneButton = styled(StyledButton)`
 
 const ReminderCard = styled(StyledCard)`
   width: 80%;
-  background-color: ${(props) =>
-    reminder.isDone ? props.theme.darkLiver : ''};
-  cursor: ${reminder.isDone ? 'not-allowed' : ''};
 
   &:hover {
     transform: translateY(-5px) scale(1.005) translateZ(0);
@@ -84,7 +81,6 @@ const Reminder = (props) => {
         title={moment(
           new Date(reminder.remindAt).getTime()
         ).fromNow()}
-        className={reminder.isDone ? 'done' : 'reminder'}
         actions={[
           <StyledPopconfirm
             title="Are you sure?"

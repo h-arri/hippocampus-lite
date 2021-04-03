@@ -2,10 +2,12 @@ import {
   CREATE_REMINDER,
   DELETE_REMINDER,
   FILTER_REMINDERS,
+  UPDATE_REMINDER,
 } from '../types';
 import { filterReminders } from '../../utils';
 
 const initialState = {
+  reminder: {},
   reminders: [],
   filtered: [],
 };
@@ -15,11 +17,27 @@ export default (state = initialState, action) => {
     case CREATE_REMINDER:
       return {
         ...state,
+        reminder: action.reminder,
         reminders: [...state.reminders, action.reminder],
+      };
+    case UPDATE_REMINDER:
+      return {
+        ...state,
+        reminders: [
+          ...state.reminders.map((reminder) => {
+            if (reminder.id === action.id) {
+              return {
+                ...reminder,
+                isDone: true,
+              };
+            }
+          }),
+        ],
       };
     case DELETE_REMINDER:
       return {
         ...state,
+        reminder: {},
         reminders: [
           ...state.reminders.filter(
             (reminder) => reminder.id !== action.id

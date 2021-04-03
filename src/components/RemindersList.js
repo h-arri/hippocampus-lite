@@ -26,9 +26,9 @@ const StyledEmpty = styled(Empty)`
   }
 `;
 
-const RemindersList = ({ reminders, loading }) => {
+const RemindersList = ({ reminders }) => {
   return (
-    <Skeleton active loading={loading}>
+    <Skeleton active loading={false}>
       {reminders.length > 0 ? (
         <StyledRow gutter={[32, 48]}>
           {reminders.map((reminder) => (
