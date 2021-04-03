@@ -21,12 +21,12 @@ const StyledInput = styled(Input)`
 const CheckboxGroup = Checkbox.Group;
 
 const StyledCheckboxGroup = styled(CheckboxGroup)`
-  .ant-checkbox-group {
-    height: 62px;
-    display: flex;
-    align-items: center;
-    color: ${(props) => props.theme.brunswickGreen};
-  }
+  // .ant-checkbox-group {
+  //   height: 62px;
+  //   display: flex;
+  //   align-items: center;
+  //   color: ${(props) => props.theme.brunswickGreen};
+  // }
 
   .ant-checkbox-inner {
     height: 25px;

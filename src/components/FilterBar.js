@@ -10,7 +10,7 @@ import {
 } from './StyledAntComponents';
 
 const FilterRow = styled(Row)`
-  justify-content: space-evenly;
+  justify-content: right;
   align-items: center;
 `;
 
@@ -82,14 +82,25 @@ const FilterBar = (props) => {
 
   return (
     <FilterRow>
-      <Col span={8}>
+      <Col
+        xs={{ span: 7, offset: 1 }}
+        md={{ span: 7, offset: 4 }}
+        lg={{ span: 8, offset: 5 }}
+        xl={{ span: 9, offset: 7 }}
+      >
         <SearchInput
           size="large"
           placeholder="Search..."
           onChange={handleSearch}
         />
       </Col>
-      <Col span={12}>
+      <Col
+        xs={{ span: 15, offset: 1 }}
+        md={{ span: 14, offset: 1 }}
+        lg={{ span: 12, offset: 2 }}
+        xl={{ span: 8, offset: 1 }}
+        flex="auto"
+      >
         <StyledCheckboxGroup
           options={options}
           value={show}
