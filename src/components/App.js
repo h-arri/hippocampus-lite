@@ -2,7 +2,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import Dashboard from './Dashboard';
 import store from '../store';
-import './ant-styles.css';
 import Hippo from '../../assets/hippo.svg';
 import { Col, Layout, Row, Typography } from 'antd';
 import Icon from '@ant-design/icons';

@@ -11,7 +11,7 @@ import {
 import styled from 'styled-components';
 
 const StyledInput = styled(Input)`
-  font-size: 25px;
+  font-size: 2vw;
 
   .ant-input:placeholder-shown {
     color: ${(props) => props.theme.darkJungleGreen};
@@ -21,13 +21,6 @@ const StyledInput = styled(Input)`
 const CheckboxGroup = Checkbox.Group;
 
 const StyledCheckboxGroup = styled(CheckboxGroup)`
-  // .ant-checkbox-group {
-  //   height: 62px;
-  //   display: flex;
-  //   align-items: center;
-  //   color: ${(props) => props.theme.brunswickGreen};
-  // }
-
   .ant-checkbox-inner {
     height: 25px;
     width: 25px;

@@ -36,7 +36,7 @@ const CreateButton = styled(StyledButton)`
 
   > h1 {
     color: ${(props) => props.theme.gainsboro};
-    font-size: 4vw;
+    font-size: 2vw;
     line-height: 0.6;
     margin: 4%;
   }

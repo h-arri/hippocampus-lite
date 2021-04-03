@@ -83,10 +83,10 @@ const FilterBar = (props) => {
   return (
     <FilterRow>
       <Col
-        xs={{ span: 7, offset: 1 }}
-        md={{ span: 7, offset: 4 }}
+        xs={{ span: 6, offset: 1 }}
+        md={{ span: 7, offset: 3 }}
         lg={{ span: 8, offset: 5 }}
-        xl={{ span: 9, offset: 7 }}
+        xl={{ span: 9, offset: 6 }}
       >
         <SearchInput
           size="large"
@@ -95,10 +95,10 @@ const FilterBar = (props) => {
         />
       </Col>
       <Col
-        xs={{ span: 15, offset: 1 }}
+        xs={{ span: 16, offset: 1 }}
         md={{ span: 14, offset: 1 }}
-        lg={{ span: 12, offset: 2 }}
-        xl={{ span: 8, offset: 1 }}
+        lg={{ span: 13, offset: 2 }}
+        xl={{ span: 12, offset: 1 }}
         flex="auto"
       >
         <StyledCheckboxGroup
