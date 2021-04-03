@@ -1,12 +1,18 @@
-import axios from "axios";
+import axios from 'axios';
 import {
+  CREATE_REMINDER,
   FILTER_REMINDERS,
   GET_REMINDERS,
   GET_REMINDERS_FAILURE,
   GET_REMINDERS_SUCCESS,
   UPDATE_FILTERED,
-} from "../types";
-import store from "../../store";
+} from '../types';
+import store from '../../store';
+
+const createReminder = (reminder) => ({
+  type: CREATE_REMINDER,
+  reminder,
+});
 
 const getReminders = () => ({
   type: GET_REMINDERS,
@@ -26,7 +32,7 @@ function getRemindersApi() {
   return (dispatch) => {
     dispatch(getReminders());
     return axios
-      .get("/api/reminders/")
+      .get('/api/reminders/')
       .then(({ data }) => {
         dispatch(getRemindersSuccess(data));
         dispatch(filterReminders(store.getState().filter));

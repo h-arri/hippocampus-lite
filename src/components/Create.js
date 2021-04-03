@@ -5,9 +5,9 @@ import {
 import { Form, message } from 'antd';
 import styled from 'styled-components';
 import moment from 'moment';
+import { v4 as uuidv4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useRef, useState } from 'react';
-import { createReminderApi } from '../store/actions/reminder';
 import { PlusOutlined } from '@ant-design/icons';
 import {
   StyledButton,
@@ -16,6 +16,10 @@ import {
   StyledInput,
   StyledModal,
 } from './StyledAntComponents';
+import {
+  createReminder,
+  createReminderSuccess,
+} from '../store/actions/reminder';
 
 const CreateButton = styled(StyledButton)`
   width: 10vw;
@@ -88,13 +92,14 @@ const Create = () => {
   const filter = useSelector((state) => state.filter);
 
   useEffect(() => {
+    console.log('reminder ', reminder);
     if (
       modalRef.current &&
       reminder.id &&
       reminders.find((r) => r.id === reminder.id) === undefined
     ) {
       message.success('Reminder created successfully!');
-      dispatch(getRemindersApi());
+      //dispatch(getRemindersApi());
       dispatch(filterReminders(filter));
     }
   }, [creating]);
@@ -111,7 +116,8 @@ const Create = () => {
     form.validateFields().then((values) => {
       form.resetFields();
       dispatch(
-        createReminderApi({
+        createReminder({
+          id: uuidv4(),
           description: values.desc,
           extra: values.extra,
           remindAt: moment(values.when.toLocaleString()).format(
@@ -120,6 +126,9 @@ const Create = () => {
           createdAt: moment().format('YYYY-MM-DD hh:mm:ss'),
         })
       );
+      setTimeout(() => {
+        dispatch(createReminderSuccess());
+      }, 5000);
       setOpen(false);
     });
   };

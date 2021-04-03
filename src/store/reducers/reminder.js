@@ -26,6 +26,7 @@ export default (state = initialState, action) => {
         ...state,
         loading: false,
         reminder: action.reminder,
+        reminders: [...state.reminders, action.reminder],
       };
     case CREATE_REMINDER_FAILURE:
       return {

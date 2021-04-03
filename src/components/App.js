@@ -16,7 +16,7 @@ const AppHeader = styled(Layout.Header)`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 13vw;
+  height: 10vw;
   background-color: ${(props) => props.theme.shinyShamrock};
 `;
 

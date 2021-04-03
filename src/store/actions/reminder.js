@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   CREATE_REMINDER,
   CREATE_REMINDER_FAILURE,
@@ -9,8 +9,8 @@ import {
   UPDATE_REMINDER,
   UPDATE_REMINDER_FAILURE,
   UPDATE_REMINDER_SUCCESS,
-} from "../types";
-import { updateFiltered } from "./reminders";
+} from '../types';
+import { updateFiltered } from './reminders';
 
 const createReminder = () => ({
   type: CREATE_REMINDER,
@@ -25,20 +25,6 @@ const createReminderFailure = (error) => ({
   type: CREATE_REMINDER_FAILURE,
   error,
 });
-
-function createReminderApi(reminder) {
-  return (dispatch) => {
-    dispatch(createReminder());
-    return axios
-      .post("/api/reminders/", reminder)
-      .then(({ data }) => {
-        dispatch(createReminderSuccess(data));
-      })
-      .catch(({ error }) => {
-        dispatch(createReminderFailure(data));
-      });
-  };
-}
 
 const deleteReminder = () => ({
   type: DELETE_REMINDER,
@@ -60,7 +46,7 @@ function deleteReminderApi(id) {
     return axios
       .delete(`/api/reminders/${id}`)
       .then(({ data }) => {
-        dispatch(deleteReminderSuccess(data === "" ? {} : data));
+        dispatch(deleteReminderSuccess(data === '' ? {} : data));
         dispatch(updateFiltered({ id }));
       })
       .catch(({ error }) => {
@@ -98,4 +84,4 @@ function updateReminderApi(reminder) {
   };
 }
 
-export { createReminderApi, deleteReminderApi, updateReminderApi };
+export { createReminder, createReminderSuccess, createReminderFailure, deleteReminderApi, updateReminderApi };

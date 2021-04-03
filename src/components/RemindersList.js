@@ -13,8 +13,11 @@ const StyledCol = styled(Col)`
 `;
 
 const StyledEmpty = styled(Empty)`
-  .ant-empty-image > svg {
-    height: 28vw;
+  .ant-empty-image {
+    height: 40px;
+    > svg {
+      height: 20vw;
+    }
   }
 
   .ant-empty-description {
