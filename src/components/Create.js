@@ -88,7 +88,6 @@ const Create = () => {
   const filter = useSelector((state) => state.filter);
 
   useEffect(() => {
-    console.log('reminder ', reminder);
     if (
       modalRef.current &&
       reminder.id &&

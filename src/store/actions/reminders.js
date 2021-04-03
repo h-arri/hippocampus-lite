@@ -10,9 +10,9 @@ const createReminder = (reminder) => ({
   reminder,
 });
 
-const updateReminder = (id) => ({
+const updateReminder = (reminder) => ({
   type: UPDATE_REMINDER,
-  id,
+  reminder,
 });
 
 const deleteReminder = (id) => ({

@@ -21,18 +21,20 @@ export default (state = initialState, action) => {
         reminders: [...state.reminders, action.reminder],
       };
     case UPDATE_REMINDER:
+      const updated = state.reminders.map((reminder) => {
+        if (reminder.id === action.reminder.id) {
+          return {
+            ...reminder,
+            isDone: true,
+          };
+        }
+        return reminder;
+      });
       return {
         ...state,
-        reminders: [
-          ...state.reminders.map((reminder) => {
-            if (reminder.id === action.id) {
-              return {
-                ...reminder,
-                isDone: true,
-              };
-            }
-          }),
-        ],
+        reminder: action.reminder,
+        reminders: updated,
+        filtered: updated,
       };
     case DELETE_REMINDER:
       return {

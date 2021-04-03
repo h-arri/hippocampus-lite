@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import {
   StyledButton,
@@ -9,6 +9,7 @@ import {
 } from './StyledAntComponents';
 import {
   deleteReminder,
+  filterReminders,
   updateReminder,
 } from '../store/actions/reminders';
 
@@ -65,10 +66,12 @@ const ReminderCard = styled(StyledCard)`
 
 const Reminder = (props) => {
   const { reminder } = props;
+  const filter = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
   const handleDone = () => {
-    dispatch(updateReminder(reminder.id));
+    dispatch(updateReminder(reminder));
+    dispatch(filterReminders(filter));
   };
 
   const handleDelete = () => {
