@@ -2,7 +2,7 @@ import {
   filterReminders,
   getRemindersApi,
 } from '../store/actions/reminders';
-import { DatePicker, Form, Input, message } from 'antd';
+import { Form, message } from 'antd';
 import styled from 'styled-components';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
