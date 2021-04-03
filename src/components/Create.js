@@ -12,7 +12,8 @@ import { PlusOutlined } from '@ant-design/icons';
 import {
   StyledButton,
   StyledDatePicker,
-  StyledForm, StyledFormItem, StyledInput,
+  StyledFormItem,
+  StyledInput,
   StyledModal,
 } from './StyledAntComponents';
 
@@ -21,19 +22,20 @@ const CreateButton = styled(StyledButton)`
   max-width: 90px;
   height: 7vw;
   max-height: 62px;
-  background: #237673;
+  background-color: ${(props) => props.theme.shinyShamrock};
+  border-color: ${(props) => props.theme.shinyShamrock};
 
   &:hover,
   &:active,
   &:focus,
   &:visited {
-    background: #237673;
-    border-color: #237673;
-    color: white;
+    background: ${(props) => props.theme.shinyShamrock};
+    border-color: ${(props) => props.theme.shinyShamrock};
+    color: ${(props) => props.theme.gainsboro};
   }
 
   > h1 {
-    color: white;
+    color: ${(props) => props.theme.gainsboro};
     font-size: 4vw;
     line-height: 0.6;
     margin: 4%;
@@ -42,6 +44,36 @@ const CreateButton = styled(StyledButton)`
 
 const CreateModal = styled(StyledModal)`
   border: none;
+`;
+
+const CreateInput = styled(StyledInput)`
+  border: none;
+  background: none;
+  color: ${(props) => props.theme.gainsboro};
+
+  &:active,
+  &:focus,
+  &:hover {
+    border: none;
+    box-shadow: none;
+  }
+`;
+
+const TextArea = CreateInput.TextArea;
+
+const CreateTextArea = styled(TextArea)`
+  color: ${(props) => props.theme.gainsboro};
+  border: none;
+  background: none;
+
+  &:focus {
+    border: none;
+    box-shadow: none;
+  }
+`;
+
+const DatePickerFormItem = styled(StyledFormItem)`
+  text-align: right;
 `;
 
 const Create = () => {
@@ -123,9 +155,9 @@ const Create = () => {
               },
             ]}
           >
-            <StyledInput placeholder="Description" size="large" />
+            <CreateInput placeholder="Description" size="large" />
           </StyledFormItem>
-          <StyledFormItem
+          <DatePickerFormItem
             name="when"
             rules={[
               {
@@ -142,9 +174,9 @@ const Create = () => {
               }}
               size="large"
             />
-          </StyledFormItem>
+          </DatePickerFormItem>
           <StyledFormItem name="extra">
-            <StyledInput.TextArea placeholder="Any tips?" />
+            <CreateTextArea placeholder="Any tips?" />
           </StyledFormItem>
         </Form>
       </CreateModal>

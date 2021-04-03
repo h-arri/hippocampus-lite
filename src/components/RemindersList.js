@@ -1,7 +1,7 @@
 import { Col, Empty, Row, Skeleton } from 'antd';
 import React from 'react';
 import styled from 'styled-components';
-import Reminder from './reminder/Reminder';
+import Reminder from './Reminder';
 
 const StyledRow = styled(Row)`
   justify-content: center;

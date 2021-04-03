@@ -4,11 +4,27 @@ import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { updateFilter } from '../store/actions/filter';
 import { filterReminders } from '../store/actions/reminders';
-import { StyledCheckboxGroup, StyledInput} from './StyledAntComponents';
+import {
+  StyledCheckboxGroup,
+  StyledInput,
+} from './StyledAntComponents';
 
 const FilterRow = styled(Row)`
   justify-content: space-evenly;
   align-items: center;
+`;
+
+const SearchInput = styled(StyledInput)`
+  border-color: ${(props) => props.theme.shinyShamrock};
+  color: ${(props) => props.theme.brunswickGreen};
+
+  &:active,
+  &:focus,
+  &:hover,
+  .textarea.ant-input:focus,
+  .textarea.ant-input:active {
+    border-color: ${(props) => props.theme.shinyShamrock};
+  }
 `;
 
 const FilterBar = (props) => {
@@ -67,7 +83,7 @@ const FilterBar = (props) => {
   return (
     <FilterRow>
       <Col span={8}>
-        <StyledInput
+        <SearchInput
           size="large"
           placeholder="Search..."
           onChange={handleSearch}

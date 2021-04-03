@@ -10,7 +10,7 @@ import {
   getRemindersApi,
 } from '../store/actions/reminders';
 
-const StyledLayout = styled(Layout)`
+const DashboardLayout = styled(Layout)`
   padding: 2% 2%;
   margin: 0 2%;
   font-family: monospace;
@@ -23,7 +23,7 @@ const StyledLayout = styled(Layout)`
   }
 `;
 
-const StyledHeader = styled(Layout.Header)`
+const DashboardHeader = styled(Layout.Header)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,20 +45,20 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <StyledLayout>
-      <StyledHeader>
+    <DashboardLayout>
+      <DashboardHeader>
         <Col span={4}>
           <Create />
         </Col>
         <Col span={20}>
           <FilterBar filter={filter} />
         </Col>
-      </StyledHeader>
+      </DashboardHeader>
       <Divider />
-      <StyledLayout.Content>
+      <DashboardLayout.Content>
         <RemindersList reminders={reminders} loading={loading} />
-      </StyledLayout.Content>
-    </StyledLayout>
+      </DashboardLayout.Content>
+    </DashboardLayout>
   );
 };
 

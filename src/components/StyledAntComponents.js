@@ -6,35 +6,26 @@ import {
   Form,
   Input,
   Modal,
+  Popconfirm,
 } from 'antd';
 import styled from 'styled-components';
 
-export const StyledInput = styled(Input)`
-  border: none;
-  background-color: #e1ffff;
+const StyledInput = styled(Input)`
   font-size: 25px;
-  color: #237673;
-
-  &:active,
-  &:focus,
-  &:hover,
-  .textarea.ant-input:focus {
-    border: none;
-    background-color: #e1ffff;
-  }
 
   .ant-input:placeholder-shown {
-    color: #237673;
+    color: ${(props) => props.theme.darkJungleGreen};
   }
 `;
 
 const CheckboxGroup = Checkbox.Group;
 
-export const StyledCheckboxGroup = styled(CheckboxGroup)`
+const StyledCheckboxGroup = styled(CheckboxGroup)`
   .ant-checkbox-group {
     height: 62px;
     display: flex;
     align-items: center;
+    color: ${(props) => props.theme.brunswickGreen};
   }
 
   .ant-checkbox-inner {
@@ -47,20 +38,24 @@ export const StyledCheckboxGroup = styled(CheckboxGroup)`
   .ant-checkbox:hover,
   .ant-checkbox:focus,
   .ant-checkbox-input:focus {
-    background-color: #e1ffff;
-    border-color: #237673;
+    background-color: ${(props) => props.theme.shinyShamrock};
+    border-color: ${(props) => props.theme.shinyShamrock};
   }
 
   .ant-checkbox-checked > .ant-checkbox-inner {
-    background-color: #237673;
-    border-color: #237673;
+    background-color: ${(props) => props.theme.shinyShamrock};
+    border-color: ${(props) => props.theme.shinyShamrock};
   }
 `;
 
-export const StyledCard = styled(Card)`
-  .ant-card {
-    height: 317px;
-    border-radius: 2%;
+const StyledCard = styled(Card)`
+  height: 317px;
+  border-radius: 2%;
+  background: ${(props) => props.theme.skobeloff};
+
+  .ant-card-cover {
+    padding: 24px;
+    font-size: 2em;
   }
 
   .ant-card-actions {
@@ -69,68 +64,66 @@ export const StyledCard = styled(Card)`
     padding-bottom: 10px;
   }
 
-  .ant-card-actions {
-    flex: 0 0 20%;
-  }
-
-  .ant-card-meta-title {
-    color: #237673;
-  }
-
-  .ant-card-actions > li > span > .anticon {
-    font-size: 30px;
+  .ant-card-actions > li:not(:last-child) {
+    border: none;
   }
 
   .ant-card-head {
     font-size: 25px;
-    border: none rgba(0, 0, 0, 0.65);
+    border: none;
   }
 `;
 
-export const StyledButton = styled(Button)`
+const StyledButton = styled(Button)`
   .ant-btn {
     border: none;
     border-radius: 5%;
   }
 `;
 
-export const StyledModal = styled(Modal)`
-  .ant-modal,
+const StyledModal = styled(Modal)`
   .ant-modal-body {
-    padding: 0;
+    padding: 15px;
+    background-color: ${(props) => props.theme.shinyShamrock};
   }
 
   .ant-modal {
-    border-radius: 10px;
+    border-radius: 100px;
   }
 
-  .ant-modal-content {
-    background-color: #e1ffff;
-  }
-
-  .ant-modal-footer > button {
-    font-size: 20px;
-    height: 100%;
+  .ant-modal-footer {
+    background-color: ${(props) => props.theme.shinyShamrock};
+    > button {
+      font-size: 20px;
+      height: 100%;
+    }
   }
 
   .ant-modal-footer > .ant-btn-primary {
-    background: #237673;
-    color: #e1ffff;
+    color: ${(props) => props.theme.skobeloff};
+    background-color: ${(props) => props.theme.gainsboro};
+    border: none;
+
+    &:hover {
+      color: ${(props) => props.theme.gainsboro};
+      background-color: ${(props) => props.theme.skobeloff};
+    }
   }
 
-  .ant-modal-footer > .ant-btn-primary:hover {
-    background: #237673;
-  }
+  .ant-btn-dangerous {
+    border: none;
+    background-color: ${(props) => props.theme.gainsboro};
 
-  .ant-modal-footer > .ant-btn-dangerous:hover {
-    background: #ff4d4f;
-    color: #e1ffff;
+    &:hover {
+      background: ${(props) => props.theme.tartOrange};
+      color: ${(props) => props.theme.gainsboro};
+    }
   }
 `;
 
 const FormItem = Form.Item;
 
-export const StyledFormItem = styled(FormItem)`
+const StyledFormItem = styled(FormItem)`
   .ant-form-item-label > label {
     font-size: 22px;
   }
@@ -142,9 +135,11 @@ export const StyledFormItem = styled(FormItem)`
   }
 `;
 
-export const StyledDatePicker = styled(DatePicker)`
-  .ant-picker-panel-container .ant-picker-panel {
-    background-color: #e1ffff;
+const StyledDatePicker = styled(DatePicker)`
+  .ant-picker-panel-container {
+    > .ant-picker-panel {
+      background-color: #e1ffff;
+    }
   }
 
   .ant-picker-cell-in-view.ant-picker-cell-selected,
@@ -165,19 +160,22 @@ export const StyledDatePicker = styled(DatePicker)`
 
   .ant-picker-suffix,
   .ant-picker-input {
-    color: rgba(0, 0, 0, 0.65);
+    ${(props) => props.theme.independence};
   }
 
   .ant-picker-input > input {
     text-align: end;
-    margin-right: 2%;
-    color: rgba(0, 0, 0, 0.65);
+    color: ${(props) => props.theme.gainsboro};
+    height: 45px;
+    margin-right: 5%;
+    padding: 15px;
+    font-size: 20px;
   }
 
   .ant-picker-clear {
     background: none;
     top: 55%;
-    right: 185px;
+    right: 88%;
   }
 
   .ant-picker-now-btn {
@@ -211,5 +209,47 @@ export const StyledDatePicker = styled(DatePicker)`
   .ant-picker-dropdown {
     top: 295px !important;
     left: 770px !important;
+    background-color: ${(props) => props.theme.independence};
   }
 `;
+
+const StyledPopconfirm = styled(Popconfirm)`
+  .ant-popover .ant-popover-content {
+    .ant-popover-inner-content > .ant-popover-buttons button {
+      background-color: ${(props) => props.theme.independence};
+      .ant-btn-dangerous {
+        &:hover {
+          background-color: red;
+        }
+      }
+    }
+  }
+
+  .ant-popover-buttons > .ant-btn-primary {
+    background: #237673;
+  }
+
+  .ant-popover-buttons > .ant-btn-primary:hover {
+    background: #237673;
+  }
+
+  .ant-popover-buttons > .ant-btn-dangerous {
+    color: ${(props) => props.theme.tartOrange};
+  }
+
+  .ant-popover-buttons > .ant-btn-dangerous:hover {
+    background: ${(props) => props.theme.tartOrange};
+    color: #e1ffff;
+  }
+`;
+
+export {
+  StyledInput,
+  StyledCheckboxGroup,
+  StyledCard,
+  StyledButton,
+  StyledModal,
+  StyledFormItem,
+  StyledDatePicker,
+  StyledPopconfirm,
+};
