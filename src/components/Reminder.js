@@ -76,6 +76,7 @@ const Reminder = (props) => {
 
   const handleDelete = () => {
     dispatch(deleteReminder(reminder.id));
+    dispatch(filterReminders(filter));
   };
 
   return (
