@@ -10,6 +10,7 @@ import styled, { ThemeProvider } from 'styled-components';
 const AppLayout = styled(Layout)`
   color: ${(props) => props.theme.independence};
   background: ${(props) => props.theme.lightCyan};
+  min-height: 100vh;
 `;
 
 const AppHeader = styled(Layout.Header)`
@@ -17,7 +18,7 @@ const AppHeader = styled(Layout.Header)`
   justify-content: center;
   align-items: center;
   height: 10vw;
-  background-color: ${(props) => props.theme.shinyShamrock};
+  background: none;
 `;
 
 const HeaderRow = styled(Row)`
@@ -34,7 +35,7 @@ const TitleCol = styled(Col)`
 
   > h1 {
     text-align: left;
-    color: ${(props) => props.theme.lightCyan};
+    color: ${(props) => props.theme.shinyShamrock};
     letter-spacing: 1.5vw;
     user-select: none;
     font-size: 3vw;
