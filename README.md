@@ -1,6 +1,6 @@
 # Hippocampus Lite
 
-Hippocampus Lite - Single-page reminder application to keep track of things `[WIP]`
+Hippocampus Lite - SPA being built with React, Redux, styled-components and Ant Design `[WIP]`
 
 ## Tech-stack
 

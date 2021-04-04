@@ -44,7 +44,7 @@ const StyledCheckboxGroup = styled(CheckboxGroup)`
 const StyledCard = styled(Card)`
   height: 317px;
   border-radius: 2%;
-  background: ${(props) => props.theme.skobeloff};
+  background: ${(props) => props.theme.shinyShamrock};
 
   .ant-card-cover {
     padding: 24px;

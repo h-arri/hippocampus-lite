@@ -14,7 +14,7 @@ import {
 } from '../store/actions/reminders';
 
 const DeleteButton = styled(StyledButton)`
-  background-color: ${(props) => props.theme.gainsboro};
+  background-color: ${(props) => props.theme.lightCyan};
   border: none;
 
   &:hover,
