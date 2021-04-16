@@ -1,8 +1,8 @@
-import { UPDATE_FILTER } from "../types";
+import { UPDATE_FILTER } from '../types';
 
 const initialState = {
-  show: ["Active"],
-  searchText: "",
+  show: ['Active'],
+  searchText: '',
 };
 
 export default (state = initialState, action) => {

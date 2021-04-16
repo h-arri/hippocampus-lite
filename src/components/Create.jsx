@@ -82,16 +82,11 @@ const Create = () => {
   const [form] = Form.useForm();
   const [open, setOpen] = useState(false);
 
-  const reminders = useSelector((state) => state.reminders.reminders);
   const reminder = useSelector((state) => state.reminders.reminder);
   const filter = useSelector((state) => state.filter);
 
   useEffect(() => {
-    if (
-      modalRef.current &&
-      reminder.id &&
-      reminders.find((r) => r.id === reminder.id) === undefined
-    ) {
+    if (modalRef.current && reminder.id) {
       message.success('Reminder created successfully!');
       dispatch(filterReminders(filter));
     }
@@ -105,7 +100,7 @@ const Create = () => {
     setOpen(false);
   };
 
-  const handleCreate = (e) => {
+  const handleCreate = () => {
     form.validateFields().then((values) => {
       form.resetFields();
       dispatch(
@@ -114,11 +109,11 @@ const Create = () => {
           description: values.desc,
           extra: values.extra,
           remindAt: moment(values.when.toLocaleString()).format(
-            'YYYY-MM-DD hh:mm:ss'
+            'YYYY-MM-DD hh:mm:ss',
           ),
           createdAt: moment().format('YYYY-MM-DD hh:mm:ss'),
           isDone: false,
-        })
+        }),
       );
       dispatch(filterReminders(filter));
       setOpen(false);

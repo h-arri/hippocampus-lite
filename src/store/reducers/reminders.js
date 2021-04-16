@@ -42,7 +42,7 @@ export default (state = initialState, action) => {
         reminder: {},
         reminders: [
           ...state.reminders.filter(
-            (reminder) => reminder.id !== action.id
+            (reminder) => reminder.id !== action.id,
           ),
         ],
       };

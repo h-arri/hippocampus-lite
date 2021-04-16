@@ -70,13 +70,13 @@ const FilterBar = (props) => {
       updateFilter({
         show,
         searchText,
-      })
+      }),
     );
     dispatch(
       filterReminders({
         show,
         searchText,
-      })
+      }),
     );
   };
 

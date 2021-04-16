@@ -64,8 +64,7 @@ const ReminderCard = styled(StyledCard)`
   }
 `;
 
-const Reminder = (props) => {
-  const { reminder } = props;
+const Reminder = ({ reminder }) => {
   const filter = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
@@ -82,9 +81,7 @@ const Reminder = (props) => {
   return (
     <>
       <ReminderCard
-        title={moment(
-          new Date(reminder.remindAt).getTime()
-        ).fromNow()}
+        title={moment(reminder.remindAt).fromNow()}
         actions={[
           <StyledPopconfirm
             title="Are you sure?"
