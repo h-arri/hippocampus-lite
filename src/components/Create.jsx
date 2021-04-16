@@ -16,12 +16,11 @@ import {
   StyledInput,
   StyledModal,
 } from './StyledAntComponents';
-import { updateFilter } from '../store/actions/filter';
 
 const CreateButton = styled(StyledButton)`
   width: 10vw;
   max-width: 90px;
-  height: 7vw;
+  height: 5vw;
   max-height: 62px;
   background-color: ${(props) => props.theme.shinyShamrock};
   border-color: ${(props) => props.theme.shinyShamrock};

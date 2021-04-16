@@ -22,7 +22,7 @@ const StyledEmpty = styled(Empty)`
 
   .ant-empty-description {
     margin: 15%;
-    font-size: 1.5em;
+    font-size: 1.5vw;
   }
 `;
 

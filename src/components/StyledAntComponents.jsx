@@ -11,7 +11,7 @@ import {
 import styled from 'styled-components';
 
 const StyledInput = styled(Input)`
-  font-size: 2vw;
+  font-size: 1.5vw;
 
   .ant-input:placeholder-shown {
     color: ${(props) => props.theme.darkJungleGreen};
@@ -22,8 +22,8 @@ const CheckboxGroup = Checkbox.Group;
 
 const StyledCheckboxGroup = styled(CheckboxGroup)`
   .ant-checkbox-inner {
-    height: 25px;
-    width: 25px;
+    height: 2vw;
+    width: 2vw;
   }
 
   .ant-checkbox-checked,

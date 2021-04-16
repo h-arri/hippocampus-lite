@@ -5,9 +5,7 @@ import Create from './Create';
 import RemindersList from './RemindersList';
 import FilterBar from './FilterBar';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import {
-  filterReminders,
-} from '../store/actions/reminders';
+import { filterReminders } from '../store/actions/reminders';
 
 const DashboardLayout = styled(Layout)`
   padding: 2% 2%;
@@ -27,7 +25,11 @@ const DashboardHeader = styled(Layout.Header)`
   justify-content: center;
   align-items: center;
   background: none;
-  height: 5rem;
+  height: 5vw;
+`;
+
+const DashboardDivider = styled(Divider)`
+  background-color: ${(props) => props.theme.shinyShamrock};
 `;
 
 const Dashboard = () => {
@@ -51,7 +53,7 @@ const Dashboard = () => {
           <FilterBar filter={filter} />
         </Col>
       </DashboardHeader>
-      <Divider />
+      <DashboardDivider />
       <DashboardLayout.Content>
         <RemindersList reminders={reminders} />
       </DashboardLayout.Content>
