@@ -30,8 +30,8 @@ const DoneButton = styled(StyledButton)`
 
   &:hover,
   &:focus {
-    border: solid 1px ${(props) => props.theme.shinyShamrock};
-    background-color: ${(props) => props.theme.shinyShamrock};
+    border: solid 1px ${(props) => props.theme.brunswickGreen};
+    background-color: ${(props) => props.theme.brunswickGreen};
     color: ${(props) => props.theme.lightCyan};
   }
 `;

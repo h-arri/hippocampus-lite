@@ -28,10 +28,6 @@ const DashboardHeader = styled(Layout.Header)`
   height: 5vw;
 `;
 
-const DashboardDivider = styled(Divider)`
-  background-color: ${(props) => props.theme.shinyShamrock};
-`;
-
 const Dashboard = () => {
   const dispatch = useDispatch();
   const reminders = useSelector((state) => state.reminders.filtered);
@@ -53,7 +49,7 @@ const Dashboard = () => {
           <FilterBar filter={filter} />
         </Col>
       </DashboardHeader>
-      <DashboardDivider />
+      <Divider />
       <DashboardLayout.Content>
         <RemindersList reminders={reminders} />
       </DashboardLayout.Content>
